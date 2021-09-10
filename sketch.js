@@ -111,9 +111,9 @@ function startGame() //the new setup
     }
 
     
-    mountains_x = [[180, 520, 1150],[0.75, 2, 1.5]];
+    mountains_x = [[180, 520, 1130, 1275],[0.75, 2, 1.5, 1]];
     mountains = [];
-    for (var i = 0; i < mountains_x.length; i++)
+    for (var i = 0; i < mountains_x[0].length; i++)
     {
         mountains.push(createMountain(mountains_x[0][i], floorPos_y, mountains_x[1][i],1));
     }
@@ -263,7 +263,7 @@ function draw()
 
     }
     //print debug information on the screen
-//    text("X: "+gameChar_world_x,250, 40);
+    text("X: "+gameChar_world_x,250, 40);
 //    text("c.l: "+collectables.length, 250, 80);
 //    text("isOver: "+isOver, 400, 40);
     
@@ -809,7 +809,10 @@ function createMountain(x, y, scale, distance)
             triangle(this.x+69*this.scale,this.y-110*this.scale,
             this.x+100*this.scale,this.y-160*this.scale,
             this.x+131*this.scale,this.y-110*this.scale);
-        }
+
+//            fill(0);
+//            ellipse(this.x, floorPos_y, 10);
+       }
     };
     return mountain;
 }
@@ -824,8 +827,8 @@ function createCanyon(x, width)
         {
             fill(100, 155, 255);
             ellipse(this.x, floorPos_y, this.width,300);
-            fill(0);
-            ellipse(this.x, floorPos_y, 10);
+//            fill(0);
+//            ellipse(this.x, floorPos_y, 10);
         },
         checkOver: function(gc_x, gc_y)
         {
@@ -893,8 +896,8 @@ function createPlatform(x, y, length)
         {
             fill("brown");
             rect(this.x, this.y, this.length, 20);
-            fill(0);
-            ellipse(this.x, this.y, 10);
+//            fill(0);
+//            ellipse(this.x, this.y, 10);
         },
         checkContact: function (gc_x, gc_y)
         {
